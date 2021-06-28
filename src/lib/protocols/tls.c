@@ -613,7 +613,7 @@ static void processCertificateElements(struct ndpi_detection_module_struct *ndpi
 
     if(flow->detected_protocol_stack[1] == NDPI_PROTOCOL_UNKNOWN) {
       /* No idea what is happening behind the scenes: let's check the certificate */
-      u_int32_t proto_id;
+      u_int32_t proto_id = 0;
       int rc = ndpi_match_string_value(ndpi_struct->tls_cert_subject_automa.ac_automa,
 				       rdnSeqBuf, strlen(rdnSeqBuf),&proto_id);
 
@@ -1102,7 +1102,7 @@ static void tlsCheckUncommonALPN(struct ndpi_flow_struct *flow)
     "http/0.9", "http/1.0", "http/1.1",
     "spdy/1", "spdy/2", "spdy/3", "spdy/3.1",
     "stun.turn", "stun.nat-discovery",
-    "h2", "h2c", "h2-16", "h2-15", "h2-14",
+    "h2", "h2c", "h2-16", "h2-15", "h2-14", "h2-fb",
     "webrtc", "c-webrtc",
     "ftp", "imap", "pop3", "managesieve", "coap",
     "xmpp-client", "xmpp-server",
